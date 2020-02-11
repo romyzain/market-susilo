@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Toko Susilo v4</title>
+    <script defer src="susilo.js"></script>
+    <style>
+        body{
+            font-family: sans-serif;
+            color: #515A5A ;
+            font-size: 13px;
+            /* background-image: linear-gradient( 0deg, rgba(247, 247, 247, 1) 23.8%, rgba(174, 214, 241, 1) 92% );
+            height: 100vh; */
+            background-color: #F4F6F7;
+        }
+            table,tbody, tr, td, th{
+            border: 1px solid #CCD1D1;
+            border-collapse: collapse;
+            border-radius: 8px; 
+        } 
+        td{
+            padding: 10px;
+        }
+        .inlineTable{
+            margin-inline-start: 300px;;
+            background-color: #fff;
+
+        }
+        .box input{
+            border: 2px solid gainsboro;
+            border-radius: 4px;
+        }
+        fieldset {
+            border: 2px solid #CCD1D1;
+            border-radius: 8px;
+            /* padding-top: 10px; */
+        }
+        legend {
+            /* padding: 0.2em 0.5em; */
+            border:1px solid #CCD1D1 ;
+            font-size: 90%;
+            border-radius: 4px;
+            background-color: #CCD1D1;
+        }
+        table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+</style>
+</head>
+<body>
+    <form action="">
+        <fieldset style="width: 400px;" class="inlineTable">
+            <legend>Filter</legend>
+            <div class="box">
+            <p>Nama : <input type="text" id="namaFilter" oninput="filterNama()"></p>
+            <p>Harga : <input type="number" id="hargaMin" onchange="filterHarga()" onkeyup="filterHarga()" placeholder="min"> - 
+                        <input type="number" id="hargaMax" onchange="filterHarga()" onkeyup="filterHarga()" placeholder="max"></p>
+            <p>Category:
+                <select name="" id="categoryInput2" onchange="filterCategory()">
+                </select>
+            </p>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset style="width: 400px;" class="inlineTable" >
+            <legend>Input Data</legend>
+            <table>
+                <td>
+                    <input type="text" id="nama" placeholder="Nama">
+                </td>
+                <td>
+                    <input type="number" id="harga" placeholder="Harga">
+                </td>
+                <td>
+                    <select name="category" id="categoryInput">
+                        
+                    </select>
+                </td>
+                <td>
+                    <input type="number" id="stock" placeholder="Stock">
+                </td>
+            </table>
+            <br>
+            <input type="button" value="Add Data" onclick="addData()">
+        </fieldset>
+        <br>
+        <fieldset style="width: 600px;" class="inlineTable">
+            <legend>Daftar Menu</legend>
+            <table>
+                <thead>
+                    <tr>
+                    <th>ID</th>
+                    <th>Nama</th>
+                    <th>Category</th>
+                    <th>Harga</th>
+                    <th>Stock</th>
+                    <th>Buy</th>
+                    <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="output">
+
+                </tbody>
+            </table>
+        </fieldset>
+        <br>
+        <fieldset style="width: 500px;" class="inlineTable">
+            <legend>Cart</legend>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Category</td>
+                        <td>Nama</td>
+                        <td>Harga</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody id="Cart">
+                    
+                </tbody>
+            </table>
+            <br>
+            <input type="button" value="Payment" onclick="payStock()">
+        </fieldset>
+
+        <!-- CART -->
+        <fieldset>
+            <legend>Cart</legend>
+            <table id="cart">
+                <thead>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Nama</th>
+                    <th>Harga</th>
+                    <th colspan="3">Action</th>
+                </thead>
+            </table>
+        </fieldset>
+    </form>
+</body>
+</html>
